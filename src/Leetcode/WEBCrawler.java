@@ -4,10 +4,6 @@ import java.util.*;
 
 // https://algo.monster/liteproblems/1236
 
-interface HtmlParser {
-    List<String> getUrls(String str);
-}
-
 
 public class WEBCrawler {
 private final Set<String> visited = new HashSet<String>();
