@@ -1,4 +1,4 @@
-package QUESTIONS;
+package QUESTIONS.Array;
 
 //The contructor will be passed an integer n. generate is supposed to return a random number between 0 to n, but it is not supposed to return a number that it has already returned.
 //If possiblities are exhauted, return -1.
