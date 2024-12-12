@@ -9,6 +9,7 @@ public class FriendsPairing {
         dp[1]=1;
         dp[2]=2;
         for(int i=3;i<=n;i++){
+            //1c1* f(n-1) +n-1 c 1 (f(n-2))
             dp[i]=(1*dp[i-1])+((i-1)*dp[i-2]);
         }
         return dp[n];
