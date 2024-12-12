@@ -2,6 +2,7 @@ package QUESTIONS.RECURSION;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+//Subset: Same as subsequence except it has empty set
 //https://leetcode.com/submissions/detail/1473739686/
 public class PrintAllSubsets {
 
