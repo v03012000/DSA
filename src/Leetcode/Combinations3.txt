@@ -1,0 +1,38 @@
+
+https://leetcode.com/problems/combination-sum-iii/description/
+
+//C++
+
+class Solution {
+public:
+void recur(vector<int>& candidates, int target, int sum,vector<int>& sub,vector<vector<int>>& ans,  int  index,set<vector<int>>& s,int k){
+
+    if(index==candidates.size()){
+            if(sum==0 && k==sub.size()){
+                ans.push_back(sub);
+            }
+            return;
+        }
+        sub.push_back(candidates[index]);
+        if(candidates[index]<=sum){
+            recur(candidates,target,sum-candidates[index],sub,ans,index+1,s,k);
+        }
+        sub.pop_back();
+        while (index + 1 < candidates.size() && candidates[index + 1] == candidates[index]) {
+        index++;
+    }
+     recur(candidates,target,sum,sub,ans,index+1,s,k);
+
+    }
+
+
+    vector<vector<int>> combinationSum3(int k, int target) {
+      vector<vector<int>> ans;
+        vector<int> sub;
+        set<vector<int>> s;
+        vector<int> candidates = {1,2,3,4,5,6,7,8,9};
+        sort(candidates.begin(),candidates.end());
+        recur(candidates, target,target,sub,ans,0,s,k);
+        return ans;
+    }
+};

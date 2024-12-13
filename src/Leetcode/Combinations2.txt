@@ -1,0 +1,35 @@
+//https://leetcode.com/problems/combination-sum-ii/
+
+//C++
+
+class Solution {
+public:
+    void recur(vector<int>& candidates, int target, int sum,vector<int>& sub,vector<vector<int>>& ans,  int  index,set<vector<int>>& s){
+
+    if(index==candidates.size()){
+            if(sum==0){
+                ans.push_back(sub);
+            }
+            return;
+        }
+        sub.push_back(candidates[index]);
+        if(candidates[index]<=sum){
+            recur(candidates,target,sum-candidates[index],sub,ans,index+1,s);
+        }
+        sub.pop_back();
+        while (index + 1 < candidates.size() && candidates[index + 1] == candidates[index]) {
+        index++;
+    }
+     recur(candidates,target,sum,sub,ans,index+1,s);
+
+    }
+
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<vector<int>> ans;
+        vector<int> sub;
+        set<vector<int>> s;
+        sort(candidates.begin(),candidates.end());
+        recur(candidates, target,target,sub,ans,0,s);
+        return ans;
+    }
+};
